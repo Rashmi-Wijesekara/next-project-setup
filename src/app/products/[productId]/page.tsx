@@ -1,7 +1,16 @@
-export default function ProductDetails({ params }: {
+import { notFound } from "next/navigation";
+
+export default function ProductDetails({
+	params,
+}: {
 	params: {
 		productId: string;
 	};
 }) {
-	return <div>Product {params.productId} details here!</div>;
+	if (Number(params.productId) > 100) {
+		notFound();
+	}
+	return (
+		<div>Product {params.productId} details here!</div>
+	);
 }
