@@ -1,10 +1,16 @@
+import Link from "next/link";
+
 export default function Products() {
 	return (
-		<>
-			<div>Products</div>
-			<div>Product 1</div>
-			<div>Product 2</div>
-			<div>Product 3</div>
-		</>
+		<div className="text-center">
+			<div>Products List</div>
+			
+			<div className="flex flex-col gap-3 mt-4">
+				<Link href={`/products/1`}>Product 1</Link>
+			<Link href={`/products/2`}>Product 2</Link>
+			<Link href={`/products/3`}>Product 3</Link>
+			<Link href={`/products/4`}>Product 4</Link>
+			</div>
+		</div>
 	)
 }

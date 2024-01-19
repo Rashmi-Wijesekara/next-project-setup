@@ -1,6 +1,32 @@
 import React from 'react'
+import NavItem from './nav-item';
+
+export type NavItem = {
+	id: number;
+	name: string;
+	path: string;
+}
+
+const navLinks: NavItem[] = [
+	{
+		id: 1,
+		name: "Blog",
+		path: "/blog",
+	},
+	{
+		id: 1,
+		name: "Products",
+		path: "/products",
+	},
+	{
+		id: 1,
+		name: "About",
+		path: "/about",
+	}
+];
 
 const Header = () => {
+
 	return (
 		<header className="p-4 dark:bg-gray-800 dark:text-gray-100">
 			<div className="container flex justify-between h-16 mx-auto">
@@ -21,42 +47,15 @@ const Header = () => {
 					</svg>
 				</a>
 				<ul className="items-stretch hidden space-x-3 md:flex">
-					<li className="flex">
-						<a
-							rel="noopener noreferrer"
-							href="#"
-							className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
-						>
-							Link
-						</a>
-					</li>
-					<li className="flex">
-						<a
-							rel="noopener noreferrer"
-							href="#"
-							className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
-						>
-							Link
-						</a>
-					</li>
-					<li className="flex">
-						<a
-							rel="noopener noreferrer"
-							href="#"
-							className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400"
-						>
-							Link
-						</a>
-					</li>
-					<li className="flex">
-						<a
-							rel="noopener noreferrer"
-							href="#"
-							className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent"
-						>
-							Link
-						</a>
-					</li>
+					{
+						navLinks.map((navLink: NavItem) => {
+							return (
+								<li key={navLink.id} className="flex">
+									<NavItem id={navLink.id} name={navLink.name} path={navLink.path} />
+								</li>
+							)
+						})
+					}
 				</ul>
 				<button className="flex justify-end p-4 md:hidden">
 					<svg
