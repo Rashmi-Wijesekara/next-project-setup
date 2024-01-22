@@ -2,8 +2,9 @@
 import Link from 'next/link';
 import React from 'react'
 
-const ErrorBoundary = ({ error }: {
-	error: Error
+const ErrorBoundary = ({ error, reset }: {
+	error: Error;
+	reset: () => void;
 }) => {
 	return (
 		<section className="flex items-center h-full sm:p-16 dark:bg-gray-900 dark:text-gray-100">
@@ -36,6 +37,13 @@ const ErrorBoundary = ({ error }: {
 				<p className="text-3xl">
 					{error.message}
 				</p>
+				<button
+					onClick={reset}
+					className="px-8 py-3 font-semibold rounded dark:bg-red-400 dark:text-gray-900"
+				>
+					Try Again
+				</button>
+
 				<Link
 					rel="noopener noreferrer"
 					href="/"
