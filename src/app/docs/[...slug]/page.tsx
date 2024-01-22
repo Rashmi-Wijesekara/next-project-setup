@@ -1,5 +1,8 @@
 export default function Docs({ params }: { params: { slug: string[] } }) {
 	
+	if (params.slug.length === 1 && params.slug[0] === "auth") {
+		throw new Error("Documentation for authentication feature is not ready yet");
+	}
 	if (params.slug.length === 1) {
 		return <div>Docs for feature {params.slug[0]}</div>
 	}
